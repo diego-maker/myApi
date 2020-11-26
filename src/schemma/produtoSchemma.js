@@ -6,12 +6,36 @@ const productSchema = new mongoose.Schema({
         required: [true, 'o nome do produto é Obrigatório']
     },
     valor : {
-        type: String,
-        required: [false, 'é necessário informar o valor']
+        type: Number,
+        required: [true, 'é necessário informar o valor']
     },
     quantidade:{
-      type: String,
-      required: [false]
+      type: Number,
+      required: [true, 'é necessário informar a quantidade']
+    },
+    codigoInterno:{
+        type: String,
+        required:true
+    },
+    estoque:{
+        type: Number,
+        required: true
+    },
+    custo:{
+        type: Number,
+        required: true
+    },
+    grupoProduto:{
+        type: String,
+        required: true
+    },
+    obs:{
+        type:String,
+        required: false
+    },
+    active:{
+       type: String,
+       required: true
     }
 });
 
