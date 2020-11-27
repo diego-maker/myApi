@@ -11,5 +11,5 @@ Os pacotes utilizados:
 * body-parser:"^1.19.0"
 ```
 $ Em densenvolvimento ainda :)
- ![hippo](https://media.giphy.com/media/LO8ipFG7sfgAPRyJW7/giphy.gif)
+ ![hippo](https://giphy.com/gifs/LO8ipFG7sfgAPRyJW7/html5)
 ```
