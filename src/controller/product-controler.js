@@ -65,12 +65,21 @@ exports.post = ('/', (req, res, next) => {
 
 
 
-exports.delete = ('/:produto', (req, res, next) => {
-  const itemDeleletado = req.params.produto
-  res.status(200).send({
-    deletado: itemDeleletado,
-    title: "delet criado manooo"
-  });
+exports.delete = ('/:id', (req, res, next) => {
+  const itemDeleletado = req.params.id
+  const connector = mongoose.connect(connectionString);
+  connector.then(async () => {
+    return produto.findOneAndRemove(itemDeleletado ).then(x => {
+      res.status(200).send({
+        message:"produto Deletado com sucesso"
+      });
+    }).catch(e=>{
+      res.status(400).send({
+        message:"erro ao Deletar produto",
+        data: e
+      })
+    })
+  })
 });
 
 
