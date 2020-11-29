@@ -5,8 +5,8 @@ const router = express.Router();
 const controller = require('../controller/usuario-controler');
 
 router.post('/', controller.post);
-router.delete('/', controller.delete);
-router.get('/', controller.get);
+router.delete('/:senha', controller.delete);
+router.get('/:senha', controller.get);
 router.put('/:id', controller.put);
 
 module.exports = router;

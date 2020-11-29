@@ -49,10 +49,18 @@ exports.delete = ('/', (req, res, next) => {
     })
 })
 
-exports.get = ('/', (req, res, next) => {
-    res.status(200).send({
-        title: "tudo ok com seu get"
-    });
+exports.get = ('/:senha', (req, res, next) => {
+  let senha = req.params.senha
+    const connector = mongoose.connect(connectionString);
+    connector.then(async () => {
+      Usuario
+        .find({senha:senha})
+        .then(data =>{
+            res.status(200).send({login: true});
+        }).catch(e=>{
+          res.status(400).send(e);
+        });
+    })
 });
 
 exports.put = ('/:id', (req, res, next) => {
