@@ -10,7 +10,9 @@ Os pacotes utilizados:
 ## Dependência 
 * body-parser:"^1.19.0"
 
-$ Em densenvolvimento ainda :)
+	Essa Api utiliza o MongoDb Altas, um banco que fica na Nuvem. No Momento só implementei duas Collections
+	"produto" e "usuário"...
+	
 
  ![hippo](https://media.giphy.com/media/LO8ipFG7sfgAPRyJW7/giphy.gif)
 
