@@ -31,7 +31,7 @@ exports.post = ('/', (req, res, next) => {
         if (!user) {
          await createUsuario(nomeU, emailU, senhaU).then(x=>{
             res.status(201).send({
-              message: "usuaario cadastrado com sucesso!"
+              message: "usuario cadastrado com sucesso!"
             })
           }).catch(e=>{
             res.status(400).send({
