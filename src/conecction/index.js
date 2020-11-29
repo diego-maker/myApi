@@ -9,12 +9,7 @@ const User = mongoose.model('user', userSchema, 'user');
 const produto = mongoose.model('produto', produtoSchemma, 'produto')
 
 
-async function createUser(username) {
-  return new User({
-    username,
-    created: Date.now()
-  }).save()
-}
+
 
 async function createProduto(item1 , item2, item3) {
     return new produto({
