@@ -27,7 +27,8 @@ async function createProduto(nomeProduto, valor, quantidade, codigoInterno, esto
 
 
 async function findUser(nomeProduto) {
-  return await produto.findOne({ nomeProduto })
+  return await produto.findOne({ nomeProduto });
+
 }
 
 exports.post = ('/', (req, res, next) => {
@@ -69,13 +70,13 @@ exports.delete = ('/:id', (req, res, next) => {
   const itemDeleletado = req.params.id
   const connector = mongoose.connect(connectionString);
   connector.then(async () => {
-    return produto.findOneAndRemove(itemDeleletado ).then(x => {
+    return produto.findOneAndRemove(itemDeleletado).then(x => {
       res.status(200).send({
-        message:"produto Deletado com sucesso"
+        message: "produto Deletado com sucesso"
       });
-    }).catch(e=>{
+    }).catch(e => {
       res.status(400).send({
-        message:"erro ao Deletar produto",
+        message: "erro ao Deletar produto",
         data: e
       })
     })
@@ -89,20 +90,20 @@ exports.put = ('/:id', (req, res, next) => {
   let parametro = req.params.id
   let body = req.body;
   const nomeProduto = body.nomeProduto;
-console.log(nomeProduto);
+  console.log(nomeProduto);
   const connector = mongoose.connect(connectionString);
   connector.then(async () => {
-    return produto.findByIdAndUpdate( parametro,{
-      $set:{
+    return produto.findByIdAndUpdate(parametro, {
+      $set: {
         nomeProduto: nomeProduto
-      } 
+      }
     }).then(x => {
       res.status(200).send({
-        message:"produto alterado com sucesso"
+        message: "produto alterado com sucesso"
       });
-    }).catch(e=>{
+    }).catch(e => {
       res.status(400).send({
-        message:"erro ao alterar produto",
+        message: "erro ao alterar produto",
         data: e
       })
     })
@@ -111,31 +112,20 @@ console.log(nomeProduto);
 })
 
 exports.get = ('/', (req, res, next) => {
+ 
   const connector = mongoose.connect(connectionString);
   connector.then(async () => {
-    return produto.find({}).then(data => {
-      res.status(200).send(data).catch(e => {
-        res.status(400).send({ message: "puts mano deu ruim :(" })
-      })
-    })
+    produto
+      .find({})
+      .then(data =>{
+          res.status(200).send(data);
+      }).catch(e=>{
+        res.status(400).send(e);
+      });
   })
-
 })
 
-exports.get = ('/:nomeProduto', (req, res, next) => {
-  let parametro = req.params.nomeProduto
-  console.log(parametro);
-  const connector = mongoose.connect(connectionString);
-  connector.then(async () => {
-    return produto.find({
-      _id: parametro   //RECEBE PARAMETRO E BUSCA PELO NOME 
-    }).then(data => {
-      res.status(200).send(data).catch(e => {
-        res.status(400).send({ message: "puts mano deu ruim :(" })
-      })
-    })
-  })
 
-})
+
 
 //developed by diego
