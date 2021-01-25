@@ -6,7 +6,7 @@ const router = express.Router();
 const indexRota = require('./routes/index');
 const rotaProduto = require('./routes/produtos');
 const rotaUsuario = require('./routes/usuario');
-
+//teste
 // my header    
 var allowCrossDomain = function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
