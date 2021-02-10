@@ -1,0 +1,7 @@
+{
+    "name": "my-mongodb-api",
+    "version": 2,
+    "env": {
+      "MONGODB_URI": "mongodb+srv://masterkey:masterkey@cluster0.b2hxt.mongodb.net/<dbname>?retryWrites=true&w=majority"
+    }
+  }
