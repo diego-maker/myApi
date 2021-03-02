@@ -1,4 +1,4 @@
-## Estou iniciando minha Primeira Api em Node js :)
+## Api em Node js :)
 
 	
 ## packages
