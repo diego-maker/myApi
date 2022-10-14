@@ -12,16 +12,8 @@ const produto = mongoose.model('produto', produtoSchemma, 'produto')
 
 
 router.get('/:nomeProduto', (req, res, next) => {
-    let nomeProduto = req.params.nomeProduto
-    const connector = mongoose.connect(connectionString);
-    connector.then(async () => {
-      produto
-        .find({nomeProduto:nomeProduto})
-        .then(data =>{
-            res.status(200).send(data);
-        }).catch(e=>{
-          res.status(400).send(e);
-        });
+    res.status(200).send({
+      message: "oi"
     })
 });
 

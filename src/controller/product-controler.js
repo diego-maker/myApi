@@ -112,16 +112,8 @@ exports.put = ('/:id', (req, res, next) => {
 })
 
 exports.get = ('/', (req, res, next) => {
- 
-  const connector = mongoose.connect(connectionString);
-  connector.then(async () => {
-    produto
-      .find({})
-      .then(data =>{
-          res.status(200).send(data);
-      }).catch(e=>{
-        res.status(400).send(e);
-      });
+  res.status(200).send({
+    teste:"teste"
   })
 })
 
